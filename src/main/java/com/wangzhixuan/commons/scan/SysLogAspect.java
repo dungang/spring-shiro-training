@@ -41,12 +41,13 @@ public class SysLogAspect {
 
     @Around("cutController()")
     public Object recordSysLog(ProceedingJoinPoint point) throws Throwable {
-        String strMethodName = point.getSignature().getName();
-        String strClassName = point.getTarget().getClass().getName();
-        Object[] params = point.getArgs();
+        String strMethodName = point.getSignature().getName();        //方法名
+        String strClassName = point.getTarget().getClass().getName(); //类名
+        Object[] params = point.getArgs();                            //参数组
         StringBuffer bfParams = new StringBuffer();
         Enumeration<String> paraNames = null;
         HttpServletRequest request = null;
+        //格式化参数组
         if (params != null && params.length > 0) {
             request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
             paraNames = request.getParameterNames();
@@ -90,6 +91,12 @@ public class SysLogAspect {
         return point.proceed();
     }
 
+
+    /**
+     * @description：根据传入的方法名,判断是否log打印
+     * @author: CuiJing
+     * @date：2017/03/19 18:04
+     */
     private boolean isWriteLog(String method) {
         String[] pattern = {"login", "logout", "add", "edit", "delete", "grant"};
         for (String s : pattern) {

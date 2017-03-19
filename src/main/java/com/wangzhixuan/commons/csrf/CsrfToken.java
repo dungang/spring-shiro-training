@@ -7,6 +7,7 @@ import java.lang.annotation.Target;
 
 /**
  * Csrf过滤注解
+ * Cross-site response forgery 跨站请求伪造
  * @author L.cm
  */
 @Target(ElementType.METHOD)

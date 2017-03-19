@@ -88,6 +88,7 @@ public class LoginController extends BaseController {
         if (!CaptchaUtils.validate(request, captcha)) {
             throw new RuntimeException("验证码错误");
         }
+        /* 为什么会执行 doGetAuthenticationInfo 方法 ??? */
         Subject user = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken(username, password);
         // 设置记住密码
