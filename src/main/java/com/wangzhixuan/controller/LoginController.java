@@ -27,19 +27,19 @@ import com.wangzhixuan.commons.utils.StringUtils;
  */
 @Controller
 public class LoginController extends BaseController {
+
     /**
-     * 首页
-     *
+     * 配置 项目 首页 (因为没有在web.xml中配置welcome页面)
      * @return
      */
     @GetMapping("/")
     public String index() {
+        System.out.println("[1]index");
         return "redirect:/index";
     }
 
     /**
      * 首页
-     *
      * @param model
      * @return
      */
@@ -55,6 +55,7 @@ public class LoginController extends BaseController {
     @GetMapping("/login")
     @CsrfToken(create = true)
     public String login() {
+        System.out.println("[3]index");
         logger.info("GET请求登录");
         if (SecurityUtils.getSubject().isAuthenticated()) {
             return "redirect:/index";
@@ -64,7 +65,6 @@ public class LoginController extends BaseController {
 
     /**
      * POST 登录 shiro 写法
-     *
      * @param username 用户名
      * @param password 密码
      * @return {Object}
@@ -108,7 +108,7 @@ public class LoginController extends BaseController {
     }
 
     /**
-     * 未授权
+     * 未授权 ?????
      * @return {String}
      */
     @GetMapping("/unauth")

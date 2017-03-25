@@ -13,26 +13,26 @@ import java.util.Map;
 @SuppressWarnings("rawtypes")
 public class PageInfo {
 
-    private final static int PAGESIZE = 10; //默认显示的记录数 
+    private final static int PAGESIZE = 10; // 默认每页显示的记录数
 
-    private int total; // 总记录 
-    private List rows; //显示的记录  
+    private int total;                      // 总记录
+    private List rows;                      // 显示的记录
 
     @JsonIgnore
     private int from;
     @JsonIgnore
     private int size;
     @JsonIgnore
-    private int nowpage; // 当前页 
+    private int nowpage;                    // 当前页
     @JsonIgnore
-    private int pagesize; // 每页显示的记录数 
+    private int pagesize;                   // 每页显示的记录数
     @JsonIgnore
-    private Map<String, Object> condition; //查询条件
+    private Map<String, Object> condition;  // 查询条件
 
     @JsonIgnore
-    private String sort = "seq";// 排序字段
+    private String sort = "seq";            // 排序字段
     @JsonIgnore
-    private String order = "asc";// asc，desc mybatis Order 关键字
+    private String order = "asc";           // asc，desc mybatis Order 关键字
 
     public PageInfo() {}
 
