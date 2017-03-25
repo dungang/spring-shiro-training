@@ -1,4 +1,4 @@
-// 判断时候在Iframe框架内,在则刷新父页面
+// 判断是否在Iframe框架内,在则刷新父页面
 if (self != top) {
     parent.location.reload(true);
     if (!!(window.attachEvent && !window.opera)) {
@@ -39,7 +39,7 @@ $(function () {
         $("#right_hand").attr("class", "initial_right_hand");
         $("#right_hand").attr("style", "right:-112px;top:-12px");
     });
-    // 验证码
+    // 验证码 src 整合
     $("#captcha").click(function() {
         var $this = $(this);
         var url = $this.data("src") + new Date().getTime();
