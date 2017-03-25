@@ -44,8 +44,6 @@ $.fn.panel.defaults.onBeforeDestroy = function() {
 };
 
 /**
- *  
- * 
  * @requires jQuery,EasyUI
  * 
  * 防止panel/window/dialog组件超出浏览器边界
@@ -83,8 +81,6 @@ $.fn.window.defaults.onMove = easyuiPanelOnMove;
 $.fn.panel.defaults.onMove = easyuiPanelOnMove;
 
 /**
- *  
- * 
  * @requires jQuery,EasyUI
  * 
  * 通用错误提示
@@ -102,8 +98,6 @@ $.fn.combobox.defaults.onLoadError = easyuiErrorFunction;
 $.fn.form.defaults.onLoadError = easyuiErrorFunction;
 
 /**
- *  
- * 
  * @requires jQuery,EasyUI
  * 
  * 为datagrid、treegrid增加表头菜单，用于显示或隐藏列，注意：冻结列不在此菜单中
@@ -152,8 +146,7 @@ $.fn.treegrid.defaults.onHeaderContextMenu = createGridHeaderContextMenu;
 
 /**
  * grid tooltip参数
- * 
- *  
+ *
  */
 var gridTooltipOptions = {
     tooltip : function(jq, fields) {
@@ -206,7 +199,6 @@ var gridTooltipOptions = {
  * $("#dg").datagrid('tooltip'); 所有列
  * 
  * $("#dg").datagrid('tooltip',['productid','listprice']); 指定列
- * 
  *  
  */
 $.extend($.fn.datagrid.methods, gridTooltipOptions);
@@ -225,14 +217,11 @@ $.extend($.fn.datagrid.methods, gridTooltipOptions);
  * $("#dg").treegrid('tooltip'); 所有列
  * 
  * $("#dg").treegrid('tooltip',['productid','listprice']); 指定列
- * 
  *  
  */
 $.extend($.fn.treegrid.methods, gridTooltipOptions);
 
 /**
- *  
- * 
  * @requires jQuery,EasyUI
  * 
  * 扩展validatebox，添加验证两次密码功能
@@ -332,7 +321,6 @@ $.fn.treegrid.defaults.loadFilter = function(data, parentId) {
 $.fn.combotree.defaults.loadFilter = $.fn.tree.defaults.loadFilter;
 
 /**
- * 
  * @requires jQuery,EasyUI
  * 
  * 创建一个模式化的dialog
@@ -381,7 +369,6 @@ $.cookie = function(key, value, options) {
 };
 
 /**
- * 
  * @requires jQuery
  * 
  * 将form表单元素的值序列化成对象
@@ -401,7 +388,6 @@ $.serializeObject = function(form) {
 };
 
 /**
- * 
  * 增加formatString功能
  * 
  * 使用方法：$.formatString('字符串{0}字符串{1}字符串','第一个变量','第二个变量');
@@ -416,7 +402,6 @@ $.formatString = function(str) {
 };
 
 /**
- * 
  * 接收一个以逗号分割的字符串，返回List，list里每一项都是一个字符串
  * 
  * @returns list
@@ -435,7 +420,6 @@ $.stringToList = function(value) {
 };
 
 /**
- * 
  * @requires jQuery
  * 
  * 改变jQuery的AJAX默认属性和方法
@@ -454,7 +438,6 @@ $.ajaxSetup({
 
 
 /**
- * 
  * @requires jQuery
  * 
  * 去掉空格
@@ -470,7 +453,6 @@ String.prototype.rtrim = function() {
 };
 
 /**
- * 
  * @requires jQuery
  * 
  * 页面加载加载进度条启用
@@ -481,7 +463,6 @@ function progressLoad(){
 }
 
 /**
- * 
  * @requires jQuery
  * 
  * 页面加载加载进度条关闭
@@ -492,7 +473,6 @@ function progressClose(){
 }
 
 /**
- * 
  * @requires jQuery
  * 
  * 防止退格键导致页面回退
