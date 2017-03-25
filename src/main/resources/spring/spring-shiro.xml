@@ -45,6 +45,8 @@
     </bean>
 
     <!-- Shiro Filter -->
+    <!--当配置文件中<bean> 的 class 属性配置的实现类是 FactoryBean 时，通过 getBean() 方法返回的不是FactoryBean 本身，
+        而是 FactoryBean#getObject() 方法所返回的对象，相当于 FactoryBean#getObject() 代理了getBean() 方法-->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <!-- 安全管理器 -->
         <property name="securityManager" ref="securityManager"/>
@@ -62,11 +64,11 @@
                     user  验证通过或RememberMe登录的都可以
                 -->
                 /captcha.jpg = anon
-                /commons/** = anon
-                /static/** = anon
-                /webhooks = anon
-                /login = anon
-                /** = user
+                /commons/**  = anon
+                /static/**   = anon
+                /webhooks    = anon
+                /login       = anon
+                /**          = user
             </value>
         </property>
     </bean>
