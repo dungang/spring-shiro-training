@@ -7,18 +7,20 @@ import java.io.Serializable;
 import java.util.Set;
 
 /**
- * @description：自定义Authentication对象，使得Subject除了携带用户的登录名外还可以携带更多信息
- * @author：zhixuan.wang
- * @date：2015/10/1 14:51
+ * @description：
+ *      自定义Authentication对象，
+ *      使得Subject除了携带用户的登录名外还可以携带更多信息
+ * @author：CUI
+ * @date：2017/3/25 22:28
  */
 public class ShiroUser implements Serializable {
     private static final long serialVersionUID = -1373760761780840081L;
     
-    private Long id;
-    private final String loginName;
-    private String name;
-    private Set<String> urlSet;
-    private Set<String> roles;
+    private Long id;                  // 用户ID
+    private final String loginName;   // 登录名
+    private String name;              // 登录用户名????
+    private Set<String> urlSet;       // 权限集
+    private Set<String> roles;        // 角色集
 
     public ShiroUser(String loginName) {
         this.loginName = loginName;

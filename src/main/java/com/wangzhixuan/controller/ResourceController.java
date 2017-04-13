@@ -17,8 +17,8 @@ import com.wangzhixuan.service.IResourceService;
 
 /**
  * @description：资源管理
- * @author：zhixuan.wang
- * @date：2015/10/1 14:51
+ * @author：CUi
+ * @date：2017/3/25
  */
 @Controller
 @RequestMapping("/resource")
@@ -29,7 +29,6 @@ public class ResourceController extends BaseController {
 
     /**
      * 菜单树
-     *
      * @return
      */
     @PostMapping("/tree")
@@ -41,7 +40,6 @@ public class ResourceController extends BaseController {
 
     /**
      * 资源管理页
-     *
      * @return
      */
     @GetMapping("/manager")
@@ -51,7 +49,6 @@ public class ResourceController extends BaseController {
 
     /**
      * 资源管理列表
-     *
      * @return
      */
     @PostMapping("/treeGrid")
@@ -62,7 +59,6 @@ public class ResourceController extends BaseController {
 
     /**
      * 添加资源页
-     *
      * @return
      */
     @GetMapping("/addPage")
@@ -72,7 +68,6 @@ public class ResourceController extends BaseController {
 
     /**
      * 添加资源
-     *
      * @param resource
      * @return
      */
@@ -109,7 +104,6 @@ public class ResourceController extends BaseController {
 
     /**
      * 编辑资源页
-     *
      * @param model
      * @param id
      * @return
@@ -123,7 +117,6 @@ public class ResourceController extends BaseController {
 
     /**
      * 编辑资源
-     *
      * @param resource
      * @return
      */
@@ -136,7 +129,6 @@ public class ResourceController extends BaseController {
 
     /**
      * 删除资源
-     *
      * @param id
      * @return
      */

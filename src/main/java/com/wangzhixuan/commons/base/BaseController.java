@@ -17,9 +17,9 @@ import com.wangzhixuan.commons.utils.PageInfo;
 import com.wangzhixuan.commons.utils.StringEscapeEditor;
 
 /**
- * @description：基础 controller
- * @author：zhixuan.wang
- * @date：2015/10/1 14:51
+ * @description：基类 controller
+ * @author：CUI
+ * @date：2017/3/25
  */
 public abstract class BaseController {
     // 控制器本来就是单例，这样似乎更加合理
@@ -27,13 +27,10 @@ public abstract class BaseController {
 
     @InitBinder
     public void initBinder(ServletRequestDataBinder binder) {
-        /**
-         * 自动转换日期类型的字段格式
-         */
+        //自动转换日期类型的字段格式
         binder.registerCustomEditor(Date.class, new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"), true));
-        /**
-         * 防止XSS攻击
-         */
+
+        //防止XSS攻击
         binder.registerCustomEditor(String.class, new StringEscapeEditor());
     }
 

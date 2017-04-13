@@ -10,9 +10,10 @@ import com.wangzhixuan.model.Role;
 import com.wangzhixuan.model.User;
 
 /**
- * @description：UserVo
- * @author：zhixuan.wang
- * @date：2015/10/1 14:51
+ * @description：
+ * 				UserVo
+ * @author：CUI
+ * @date：2017/3/26 16:50
  */
 public class UserVo implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -47,6 +48,7 @@ public class UserVo implements Serializable {
 	private String roleIds;
 
 	private Date createdateStart;
+
 	private Date createdateEnd;
 
 	public Long getId() {

@@ -7,12 +7,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>主页</title>
 <script type="text/javascript">
-    var index_tabs;
-    var layout_west_tree;
-    var indexTabsMenu;
+    var index_tabs;       //选项卡
+    var layout_west_tree; //西边树
+    var indexTabsMenu;    //选项卡菜单
     $(function() {
+        //页面布局
         $('#index_layout').layout({fit : true});
-        
+
+        // 选项卡 导航栏 index_tabs
         index_tabs = $('#index_tabs').tabs({
             fit : true,
             border : false,
@@ -76,7 +78,8 @@
                 }
             }
         });
-        
+
+        //布局树
         layout_west_tree = $('#layout_west_tree').tree({
             url : '${path }/resource/tree',
             parentField : 'pid',
@@ -198,19 +201,24 @@
                 </div>
             </div>
         </div>
-        <div data-options="region:'south',border:false" style="height: 30px;line-height:30px; overflow: hidden;text-align: center;background-color: #eee" >Copyright © 2015 power by <a href="http://www.dreamlu.net/" target="_blank">如梦技术</a></div>
+        <div data-options="region:'south',border:false" style="height: 30px;line-height:30px; overflow: hidden;text-align: center;background-color: #eee" >Copyright © 2017 power by 小崔</div>
     </div>
     <div id="tabsMenu">
-        <div data-options="iconCls:'fi-loop'" type="refresh" style="font-size: 12px;">刷新</div>
+        <div data-options="iconCls:'fi-loop'"   type="refresh" style="font-size: 12px;" >刷新</div>
         <div class="menu-sep"></div>
-        <div data-options="iconCls:'fi-x'" type="close" style="font-size: 12px;">关闭</div>
-        <div data-options="iconCls:''" type="closeOther">关闭其他</div>
-        <div data-options="iconCls:''" type="closeAll">关闭所有</div>
+        <div data-options="iconCls:'fi-x'"      type="close"   style="font-size: 12px;" >关闭</div>
+        <div data-options="iconCls:''"          type="closeOther"                       >关闭其他</div>
+        <div data-options="iconCls:''"          type="closeAll"                         >关闭所有</div>
     </div>
     
     <!--[if lte IE 7]>
-    <div id="ie6-warning"><p>您正在使用 低版本浏览器，在本页面可能会导致部分功能无法使用。建议您升级到 <a href="http://www.microsoft.com/china/windows/internet-explorer/" target="_blank">Internet Explorer 8</a> 或以下浏览器：
-    <a href="http://www.mozillaonline.com/" target="_blank">Firefox</a> / <a href="http://www.google.com/chrome/?hl=zh-CN" target="_blank">Chrome</a> / <a href="http://www.apple.com.cn/safari/" target="_blank">Safari</a> / <a href="http://www.operachina.com/" target="_blank">Opera</a></p></div>
+    <div id="ie6-warning"><p>您正在使用 低版本浏览器，在本页面可能会导致部分功能无法使用。建议您升级到
+        <a href="http://www.microsoft.com/china/windows/internet-explorer/" target="_blank">Internet Explorer 8</a>
+        或以下浏览器：
+          <a href="http://www.mozillaonline.com/" target="_blank">Firefox</a>
+        / <a href="http://www.google.com/chrome/?hl=zh-CN" target="_blank">Chrome</a>
+        / <a href="http://www.apple.com.cn/safari/" target="_blank">Safari</a>
+        / <a href="http://www.operachina.com/" target="_blank">Opera</a></p></div>
     <![endif]-->
     <style>
         /*ie6提示*/

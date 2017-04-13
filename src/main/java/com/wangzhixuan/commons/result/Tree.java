@@ -7,21 +7,21 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 /**
  * @description：TreeVO
- * @author：zhixuan.wang
- * @date：2015/10/1 14:51
+ * @author：CUI
+ * @date：2017/3/25 22:39
  */
 public class Tree implements java.io.Serializable {
 
     private static final long serialVersionUID = 980682543891282923L;
-    private Long id;
-    private String text;
-    private String state = "open";// open,closed
-    private boolean checked = false;
-    private Object attributes;
+    private Long        id;                 //
+    private String      text;               //
+    private String      state = "open";     // open,closed  状态: 默认打开树
+    private boolean     checked = false;    //
+    private Object      attributes;         //
     @JsonInclude(Include.NON_NULL)
-    private List<Tree> children; // null不输出
-    private String iconCls;
-    private Long pid;
+    private List<Tree>  children;           // null不输出
+    private String      iconCls;            // 图标
+    private Long        pid;                // 父级资源id ??
     /**
      * ajax,iframe,
      */

@@ -50,6 +50,8 @@ public class ShiroDbRealm extends AuthorizingRealm {
      * ---- realm 通过用户名将密码查询返回
      * ---- shiro 自动去比较查询出密码和用户输入密码是否一致
      * ---- 进行登陆控制 )
+     * @author： CUI
+     * @date: 2017/3/26 18:02
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) throws AuthenticationException {
@@ -57,7 +59,7 @@ public class ShiroDbRealm extends AuthorizingRealm {
         UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
         UserVo uservo = new UserVo();
         uservo.setLoginName(token.getUsername());
-        List<User> list = userService.selectByLoginName(uservo);
+        List<User> list = userService.selectByLoginName(uservo); // 查出登录的人员信息
         // 账号不存在
         if (list == null || list.isEmpty()) {
             return null;
@@ -67,7 +69,7 @@ public class ShiroDbRealm extends AuthorizingRealm {
         if (user.getStatus() == 1) {
             return null;
         }
-        // 读取用户的url和角色
+        // 读取用户的url和角色 存入到 ShiroUser 中以供后续使用
         Map<String, Set<String>> resourceMap = roleService.selectResourceMapByUserId(user.getId());
         Set<String> urls = resourceMap.get("urls");
         Set<String> roles = resourceMap.get("roles");
@@ -79,19 +81,24 @@ public class ShiroDbRealm extends AuthorizingRealm {
 
     /**
      * Shiro权限认证
+     * @author： CUI
+     * @date: 2017/3/26 18:00
      */
     @Override
-    protected AuthorizationInfo doGetAuthorizationInfo(
-            PrincipalCollection principals) {
+    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         ShiroUser shiroUser = (ShiroUser) principals.getPrimaryPrincipal();
-        
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
         info.setRoles(shiroUser.getRoles());
         info.addStringPermissions(shiroUser.getUrlSet());
-        
         return info;
     }
-    
+
+    /**
+     * 退出权限
+     * @author： CUI
+     * @date: 2017/3/26 18:00
+     * @param principals
+     */
     @Override
     public void onLogout(PrincipalCollection principals) {
         super.clearCachedAuthorizationInfo(principals);
@@ -101,6 +108,8 @@ public class ShiroDbRealm extends AuthorizingRealm {
 
     /**
      * 清除用户缓存
+     * @author： CUI
+     * @date: 2017/3/26 18:00
      * @param shiroUser
      */
     public void removeUserCache(ShiroUser shiroUser){
@@ -109,6 +118,8 @@ public class ShiroDbRealm extends AuthorizingRealm {
 
     /**
      * 清除用户缓存
+     * @author： CUI
+     * @date: 2017/3/26 18:00
      * @param loginName
      */
     public void removeUserCache(String loginName){

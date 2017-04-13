@@ -29,17 +29,7 @@ import com.wangzhixuan.commons.utils.StringUtils;
 public class LoginController extends BaseController {
 
     /**
-     * 配置 项目 首页 (因为没有在web.xml中配置welcome页面)
-     * @return
-     */
-    @GetMapping("/")
-    public String index() {
-        System.out.println("[1]index");
-        return "redirect:/index";
-    }
-
-    /**
-     * 首页
+     * 主页 展示  当登录成功后会有 get方法 /index 请求
      * @param model
      * @return
      */
@@ -55,10 +45,9 @@ public class LoginController extends BaseController {
     @GetMapping("/login")
     @CsrfToken(create = true)
     public String login() {
-        System.out.println("[3]index");
         logger.info("GET请求登录");
         if (SecurityUtils.getSubject().isAuthenticated()) {
-            return "redirect:/index";
+            return "redirect:/index"; //认证成功重定向去首页
         }
         return "login";
     }
@@ -108,7 +97,7 @@ public class LoginController extends BaseController {
     }
 
     /**
-     * 未授权 ?????
+     * 未认证 跳转到登录页面
      * @return {String}
      */
     @GetMapping("/unauth")

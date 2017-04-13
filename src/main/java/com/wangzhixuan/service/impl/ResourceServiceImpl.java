@@ -18,13 +18,13 @@ import com.wangzhixuan.model.Resource;
 import com.wangzhixuan.service.IResourceService;
 
 /**
- *
  * Resource 表数据服务层接口实现类
- *
+ * @author: CUI
+ * @date：2017/3/26 17:10
  */
 @Service
 public class ResourceServiceImpl extends ServiceImpl<ResourceMapper, Resource> implements IResourceService {
-    private static final int RESOURCE_MENU = 0; // 菜单
+    private static final int RESOURCE_MENU = 0; // 全部 菜单
 
     @Autowired
     private ResourceMapper resourceMapper;
@@ -90,11 +90,16 @@ public class ResourceServiceImpl extends ServiceImpl<ResourceMapper, Resource> i
         }
         return trees;
     }
-    
+
+    /**
+     * 根据 User 对象 获取相应的树列表
+     * @param shiroUser
+     * @return
+     */
     @Override
     public List<Tree> selectTree(ShiroUser shiroUser) {
         List<Tree> trees = new ArrayList<Tree>();
-        // shiro中缓存的用户角色
+        // shiro中缓存的用户角色  为什么会存在这个角色???? 答：在登录验证时候查的
         Set<String> roles = shiroUser.getRoles();
         if (roles == null) {
             return trees;
